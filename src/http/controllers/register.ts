@@ -14,11 +14,10 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
     const { name, email, password } = registerBodySchema.parse(request.body);
 
     try {
-        const prismaUsersRepository = new PrismaUsersRepository()
-        const registerUseCase = new RegisterUseCase(prismaUsersRepository)
+        const prismaUsersRepository = new PrismaUsersRepository();
+        const registerUseCase = new RegisterUseCase(prismaUsersRepository);
 
         await registerUseCase.execute({ name, email, password });
-        
     } catch (err) {
         return reply.status(409).send();
     }
