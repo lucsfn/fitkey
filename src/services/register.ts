@@ -18,7 +18,6 @@ export class RegisterUseCase {
 
     async execute({ name, email, password }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse>
      {
-       
         const userWithSameEmail = await this.usersRepository.findByEmail(email)
 
         if (userWithSameEmail) {
