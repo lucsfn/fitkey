@@ -1,4 +1,4 @@
-import type { UsersRepository } from "@/repositories/prisma/users-repository.ts";
+import type { UsersRepository } from "@/repositories/users-repository.ts";
 import type { User } from "@prisma/client";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error.ts";
 

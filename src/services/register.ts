@@ -1,4 +1,4 @@
-import type { UsersRepository } from "@/repositories/prisma/users-repository.ts";
+import type { UsersRepository } from "@/repositories/users-repository.ts";
 import { hash } from "bcryptjs";
 import { UserAlreadyExistsError } from "./errors/user-already-exists-error.ts";
 import type { User } from "@prisma/client";

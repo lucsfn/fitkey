@@ -1,5 +1,5 @@
 import type { CheckIn } from "@prisma/client";
-import type { CheckInsRepository } from "@/repositories/prisma/check-ins-repository.ts";
+import type { CheckInsRepository } from "@/repositories/check-ins-repository.ts";
 
 interface CheckInUseCaseRequest {
     userId: string;
