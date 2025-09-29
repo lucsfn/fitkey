@@ -10,15 +10,18 @@ interface RegisterUseCaseRequest {
 }
 
 interface RegisterUseCaseResponse {
-    user: User
+    user: User;
 }
 
 export class RegisterUseCase {
     constructor(private usersRepository: UsersRepository) {}
 
-    async execute({ name, email, password }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse>
-     {
-        const userWithSameEmail = await this.usersRepository.findByEmail(email)
+    async execute({
+        name,
+        email,
+        password,
+    }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
+        const userWithSameEmail = await this.usersRepository.findByEmail(email);
 
         if (userWithSameEmail) {
             throw new UserAlreadyExistsError();
@@ -33,7 +36,7 @@ export class RegisterUseCase {
         });
 
         return {
-            user
-        }
+            user,
+        };
     }
 }
