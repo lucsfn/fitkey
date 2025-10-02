@@ -5,7 +5,7 @@ import { history } from "./history.ts";
 import { metrics } from "./metrics.ts";
 import { validate } from "./validate.ts";
 
-export async function gymsRoutes(app: FastifyInstance) {
+export async function checkInRoutes(app: FastifyInstance) {
     // All routes below this hook will call the jwt middleware
     app.addHook("onRequest", verifyJWT);
 
