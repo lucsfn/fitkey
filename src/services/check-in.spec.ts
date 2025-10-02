@@ -95,7 +95,7 @@ describe("Check-in Use Case", () => {
             longitude: new Decimal(-43.9816004),
         });
 
-        expect(async () => {
+        await expect(async () => {
             await sut.execute({
                 gymId: "gym-01",
                 userId: "user-01",
