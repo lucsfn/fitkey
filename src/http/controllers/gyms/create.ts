@@ -17,7 +17,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
         }),
     });
 
-    const { title, description, latitude, longitude, phone } =
+    const { title, description, phone, latitude, longitude } =
         createGymBodySchema.parse(request.body);
 
     const createGymUseCase = makeCreateGymUseCase();
@@ -25,9 +25,9 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     await createGymUseCase.execute({
         title,
         description,
+        phone,
         latitude,
         longitude,
-        phone,
     });
 
     return reply.status(201).send();
