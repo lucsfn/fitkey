@@ -3,6 +3,7 @@ import type { FastifyInstance } from "fastify";
 import { search } from "./search.ts";
 import { nearby } from "./nearby.ts";
 import { create } from "./create.ts";
+import { verifyUserRole } from "@/http/middlewares/verify-user-role.ts";
 
 export async function gymsRoutes(app: FastifyInstance) {
     // All routes below this hook will call the jwt middleware
@@ -11,5 +12,5 @@ export async function gymsRoutes(app: FastifyInstance) {
     app.get("/gyms/search", search);
     app.get("/gyms/nearby", nearby);
 
-    app.post("/gyms", create);
+    app.post("/gyms", { onRequest: [verifyUserRole("ADMIN")] }, create);
 }
